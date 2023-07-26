@@ -1,24 +1,49 @@
 import logo from './logo.svg';
 import './App.css';
+import Data from './Data';
+import Props from './Props';
+import Function from './Function';
+import { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  const [no, setNo] = useState(0);
+  const Add = () => {
+    setNo(
+      no + 10
+    );
+  }
+  const minus = () => {
+    setNo(
+      no - 10
+    );
+  }
+  const [number, setNumber] = useState(0);
+  const plus = () => {
+    setNumber(
+      number + 10
+    );
+  }
+  const mians = () => {
+    setNumber(
+      number - 10
+    );
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Props
+        record={Data}
+        btn={Add}
+        button={minus}
+        no={no}
+      />
+      <Function
+        record={Data}
+        button={plus}
+        mians={mians}
+        number={number}
+      />
+    </>
   );
 }
 
